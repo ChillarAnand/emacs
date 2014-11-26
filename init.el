@@ -1,4 +1,3 @@
-
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
 
@@ -147,6 +146,27 @@
 
 
 (provide 'init)
+
+
+;; show recent files for C-x f
+(defun recentf-ido-find-file ()
+  "Find a recent file using ido."
+  (interactive)
+  (let ((file (ido-completing-read "Choose recent file: " recentf-list nil t)))
+    (when file
+      (find-file file))))
+
+(global-set-key (kbd "C-x f") 'recentf-ido-find-file)
+
+
+;; elpy
+(require 'package)
+(add-to-list 'package-archives
+             '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+
+(package-initialize)
+(elpy-enable)
+
 
 ;; Local Variables:
 ;; coding: utf-8
