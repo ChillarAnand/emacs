@@ -173,6 +173,10 @@
 
 ;; enable company mode for auto completion
 (add-hook 'after-init-hook 'global-company-mode)
+
+
+;; clean whitespace before saving buffer
+(add-hook 'before-save-hook 'whitespace-cleanup)
 ;; Local Variables:
 ;; coding: utf-8
 ;; no-byte-compile: t
