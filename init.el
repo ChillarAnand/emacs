@@ -169,6 +169,10 @@
 
 ;; enable projectile
 (projectile-global-mode)
+
+
+;; enable company mode for auto completion
+(add-hook 'after-init-hook 'global-company-mode)
 ;; Local Variables:
 ;; coding: utf-8
 ;; no-byte-compile: t
