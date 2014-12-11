@@ -163,11 +163,12 @@
 (require 'package)
 (add-to-list 'package-archives
              '("elpy" . "http://jorgenschaefer.github.io/packages/"))
-
 (package-initialize)
 (elpy-enable)
 
 
+;; enable projectile
+(projectile-global-mode)
 ;; Local Variables:
 ;; coding: utf-8
 ;; no-byte-compile: t
