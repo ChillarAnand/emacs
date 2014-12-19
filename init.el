@@ -210,5 +210,17 @@
 (global-set-key (kbd "C-c d") 'duplicate-line)
 
 
+;; Shut up & compile the buffer
+(setq compilation-ask-about-save nil)
+;; Don't save *anything*
+(setq compilation-save-buffers-predicate '(lambda () nil))
+
+;; compile current buffer
+(add-hook 'python-mode-hook
+          (lambda ()
+            (set (make-local-variable 'compile-command)
+                 (concat "python " buffer-file-name))))
+
+
 (provide 'init)
 ;;; init.el ends here
