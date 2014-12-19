@@ -145,7 +145,7 @@
                      (sanityinc/time-subtract-millis after-init-time before-init-time))))
 
 
-(provide 'init)
+
 
 
 ;; show recent files for C-x f
@@ -195,3 +195,20 @@
 ;; highlight line color.
 ;; (global-hl-line-mode t)
 ;; (set-face-background 'hl-line "grey")
+
+
+;; duplicate current line
+(defun duplicate-line()
+  (interactive)
+  (move-beginning-of-line 1)
+  (kill-line)
+  (yank)
+  (open-line 1)
+  (next-line 1)
+  (yank)
+  )
+(global-set-key (kbd "C-c d") 'duplicate-line)
+
+
+(provide 'init)
+;;; init.el ends here
